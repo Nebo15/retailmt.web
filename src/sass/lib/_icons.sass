@@ -1,0 +1,12 @@
+//* Authors:
+//* - Andrew Dryga, dryga.com
+
+@mixin include-icon($map, $name, $prefix: 'icon-')
+	.#{$prefix}#{$name}
+		+sprite_sized($map, $name)
+		@content
+
+@mixin include-all-icons($map, $prefix: 'icon-')
+	@each $sprite_icon_name in sprite_names($map)
+		+include_icon($map, $sprite_icon_name, $prefix)
+			@content

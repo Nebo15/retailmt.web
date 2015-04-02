@@ -1,0 +1,154 @@
+//* Authors:
+//* - Original source: Yuriy "akella" Artyukh, cssing.org.ua
+//* - Rewritten by:    Andrew Dryga, dryga.com
+
+@import "compass/css3/transform"
+
+// Typography
+// -----
+@mixin font-size($sizeValue)
+	font-size: $sizeValue + px
+	font-size: $sizeValue / 10 + rem
+
+@mixin font-face($name, $filename, $dir: "/fonts", $realname: $name)
+	@font-face
+		font-family: "#{$name}"
+		src: url("#{$dir}/#{$filename}.eot")
+		src: url("#{$dir}/#{$filename}.eot?#iefix") format("embedded-opentype"), url("#{$dir}/#{$filename}.woff") format("woff"), url("#{$dir}/#{$filename}.ttf") format("truetype"), url("#{$dir}/#{$filename}.svg##{$name}") format("svg")
+
+// Notice: Stop using it everywhere, since default sub-pixel anti-aliasing is much better
+@mixin font-smoothing($val: antialiased)
+	-webkit-font-smoothing: $val
+
+@mixin text-overflow-ellipsis
+	overflow: hidden
+	-ms-text-overflow: ellipsis
+	text-overflow: ellipsis
+	white-space: nowrap
+
+@mixin text-fullwidth
+	word-break: break-all
+	word-break: break-word
+	hyphens: auto
+
+
+// Backgrounds
+// -----
+@mixin bg-size-cover
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: 50% 50%
+
+@mixin bg-size-contain
+	background-repeat: no-repeat
+	background-size: contain
+	background-position: 50% 50%
+
+@mixin bg-gradient($color1, $color2)
+	+background-image(linear-gradient($color1, $color2))
+
+@mixin bg-gradient-l($color1, $color2)
+	+background-image(linear-gradient(left, $color1, $color2))
+
+@mixin bg-gradient-tbl($color1, $color2)
+	+background-image(linear-gradient(to bottom left, $color1, $color2))
+
+@mixin bg-responsive-hdpi
+	+hdpi
+		@content
+
+
+// Inputs
+// -----
+@mixin input-placeholder
+	&:-ms-input-placeholder
+		@content
+	&:-moz-placeholder
+		@content
+	&::-moz-placeholder
+		@content
+	&::-webkit-input-placeholder
+		@content
+	&::placeholder
+		@content
+
+@mixin input-placeholder-color($color)
+	&:-moz-placeholder,
+	&::-moz-placeholder
+		color: $color
+		opacity: 1
+	&::-webkit-input-placeholder
+		color: $color
+
+
+// User-agent features
+// -----
+@mixin user-select-none
+	-webkit-touch-callout: none
+	user-select: none
+
+@mixin user-select-all
+	-webkit-touch-callout: all
+	user-select: all
+
+@mixin user-pointer-invisible
+	pointer-events: none
+
+@mixin user-pointer-visible
+	pointer-events: visible
+
+
+// Various
+// -----
+@mixin fullscreen
+	width: 100%
+	height: 100%
+
+@mixin fix-box-sizing
+	+box-sizing(border-box)
+
+@mixin use-gpu
+	+translate3d(0,0,0)
+
+@mixin filter-grayscale-full
+	filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale")
+	filter: gray
+	-webkit-filter: grayscale(100%)
+	filter: progid:DXImageTransform.Microsoft.BasicImage(grayScale=1)
+	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(grayScale=1)"
+
+@mixin filter-grayscale($opacity: 50)
+	$tmp: $opacity/100
+	filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='saturate' values='#{$tmp}'/></filter></svg>#grayscale")
+	filter: gray alpha(opacity = $opacity)
+	-webkit-filter: grayscale("#{$opacity}%")
+	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(grayScale=#{$tmp})"
+
+@mixin draw-triangle($width, $height, $bg, $direction)
+	width: 0px
+	height: 0px
+	border-style: solid
+	@if $direction == t
+		border-width: 0 $width / 2 + px $height + px $width / 2 + px
+		border-color: transparent transparent $bg transparent
+	@if $direction == r
+		border-width: $height / 2 + px 0 $height / 2 + px $width + px
+		border-color: transparent transparent transparent $bg
+	@if $direction == b
+		border-width: $height + px $width / 2 + px 0 $width / 2 + px
+		border-color: $bg transparent transparent transparent
+	@if $direction == l
+		border-width: $height / 2 + px $width + px $height / 2 + px 0
+		border-color: transparent $bg transparent transparent
+	@if $direction == tl
+		border-width: $height + px $width + px 0 0
+		border-color: $bg transparent transparent transparent
+	@if $direction == tr
+		border-width: 0 $width + px $height + px 0
+		border-color: transparent $bg transparent transparent
+	@if $direction == br
+		border-width: 0 0 $height + px $width + px
+		border-color: transparent transparent $bg transparent
+	@if $direction == bl
+		border-width: $width + px 0 0 $height + px
+		border-color: transparent transparent transparent $bg

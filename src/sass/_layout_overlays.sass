@@ -1,0 +1,83 @@
+.overlays
+    position: fixed
+    z-index: 100
+    pointer-events: none
+
+@mixin overlays__item($top, $right, $bottom, $left)
+    z-index: 101
+    position: absolute
+    margin: $top 0 $bottom 0
+    padding: 0 $right 0 $left
+    @if $top != 0
+        top: 0
+    @if $right != 0
+        right: 0
+    @if $bottom != 0
+        bottom: 0
+    @if $left != 0
+        left: 0
+
+.logo
+    +overlays__item(50px, 0, 0, 40px)
+    pointer-events: visible
+
+.logo-image
+    width: 200px
+    max-width: 100%
+
+.appstore
+    +overlays__item(0, 0, 40px, 40px)
+    pointer-events: visible
+
+.appstore-image
+    width: 200px
+    max-width: 100%
+
+.overlay-bottom
+    +overlays__item(0, 40px, 40px, 40px)
+    display: table
+    width: 100%
+
+.overlay-bottom-left
+    display: table-cell
+    width: 50%
+    pointer-events: visible
+    // float: left
+    p:last-child
+        margin-bottom: 0
+
+.overlay-bottom-right
+    display: table-cell
+    width: 50%
+    pointer-events: visible
+    text-align: right
+    vertical-align: bottom
+    // float: right
+
+.agreement
+    +overlays__item(0, 40px, 40px, 0)
+
+.agreement-link,
+.support-link
+    vertical-align: bottom
+    font-size: 12px
+    pointer-events: visible
+    margin-right: 10px
+
+.menu
+    +overlays__item(0, 45px, 0, 0)
+    pointer-events: visible
+    top: 0
+    bottom: 0
+
++max-screen(767px)
+    .overlay-bottom
+        display: block
+        +overlays__item(0, 0, 0, 0)
+        margin-top: 75px
+
+    .overlay-bottom-left,
+    .overlay-bottom-right
+        display: block
+        text-align: center
+        width: 100%

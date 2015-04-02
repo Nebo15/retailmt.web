@@ -1,0 +1,28 @@
+// Vertical and horizontal centering for blocks with unknown width and height
+@mixin centered($val: 'all')
+	@if $val == 'all'
+		text-align: center
+	&:before
+		content: ''
+		display: inline-block
+		height: 100%
+		width: 0
+		vertical-align: middle
+
+@mixin centered-child
+	display: inline-block
+	vertical-align: middle
+
+@mixin thin-widescreen
+	@media only screen and (min-device-width: 1024px) and (max-device-height: 800px), only screen and (min-device-width: 1024px) and (min-aspect-ratio: 1440/800)
+		@content
+
+.nowrap
+	white-space: nowrap
+
+.help
+	cursor: help
+	border-bottom: 1px #FFF dotted
+
+.text-right
+	text-align: right

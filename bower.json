@@ -1,0 +1,31 @@
+{
+	"name": "mbank.web",
+	"version": "0.0.4",
+	"homepage": "https://github.com/Nebo15/mbank.web",
+	"authors": [
+		"Andrew Dryga <andrew@dryga.com>"
+	],
+	"description": "MBank landing page",
+	"main": "www/index.html",
+	"keywords": [
+		"mobile",
+		"banking",
+		"landing",
+		"page",
+		"finance",
+		"modern"
+	],
+	"license": "Private",
+	"private": true,
+	"ignore": [
+		"**/.*",
+		"www/components"
+	],
+	"dependencies": {
+		"html5shiv": "~3.7.0",
+		"jquery": "~2.1.0",
+		"font-rexbold": "*",
+		"bootstrap-common": "*",
+		"font-kelson": "~1.0.0"
+	}
+}

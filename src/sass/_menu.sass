@@ -1,0 +1,43 @@
+$menu_icons: sprite-map("icons/menu/*.png", $spacing: 5px)
+$menu_icons_x2: sprite-map("icons/menu_x2/*.png", $spacing: 5px)
+
+/* Menu */
+.menu
+	+centered
+
+.menu-list
+	+centered-child
+	font-size: 25px
+
+.menu-list__item
+	margin-top: 18px
+	opacity: 0.6
+	+single-transition(opacity, 0.4s, ease)
+	&:hover
+		opacity: 1
+	&.active
+		opacity: 1
+
+.menu-list__item a:hover
+	color: #FFF
+
+.menu-icon
+	opacity: 0.6
+	+single-transition(opacity, 0.4s, ease)
+	&:hover
+		opacity: 1
+
+.active .menu-icon
+	opacity: 1
+
+.menu-icon-house
+	+sprite("house", $menu_icons, $menu_icons_x2, false, true)
+
+.menu-icon-rocket
+	+sprite("rocket", $menu_icons, $menu_icons_x2, false, true)
+
+.menu-icon-moustache
+	+sprite("moustache", $menu_icons, $menu_icons_x2, false, true)
+
+.menu-icon-wand
+	+sprite("wand", $menu_icons, $menu_icons_x2, false, true)
