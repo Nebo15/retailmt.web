@@ -1,0 +1,268 @@
+.nowrap {
+  white-space: nowrap; }
+
+.help {
+  cursor: help;
+  border-bottom: 1px #FFF dotted; }
+
+.text-right {
+  text-align: right; }
+
+@font-face {
+  font-family: "HelveticaNeueCyr-UltraLight";
+  src: url("/fonts/helveticaneuecyr-ultralight.eot");
+  src: url("/fonts/helveticaneuecyr-ultralight.eot?#iefix") format("embedded-opentype"), url("/fonts/helveticaneuecyr-ultralight.woff") format("woff"), url("/fonts/helveticaneuecyr-ultralight.ttf") format("truetype"), url("/fonts/helveticaneuecyr-ultralight.svg#HelveticaNeueCyr-UltraLight") format("svg"); }
+html,
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  color: #FFF; }
+
+.tos {
+  line-height: 1.4;
+  color: #000;
+  font-size: 14px;
+  padding: 0; }
+  .tos .container-inner {
+    padding: 20px; }
+  .tos a {
+    color: #000; }
+    .tos a:hover {
+      color: #000;
+      text-decoration: underline; }
+  .tos h1,
+  .tos h2 {
+    font-style: normal;
+    text-align: center;
+    margin-top: 1.5em;
+    font-weight: bold; }
+  .tos h1 {
+    font-size: 20px; }
+  .tos h2 {
+    font-size: 16px; }
+
+a {
+  color: #FFF;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline;
+    color: #FFF; }
+  a:focus {
+    outline: none; }
+
+h1 {
+  font-size: 55px;
+  font-weight: 300;
+  line-height: 1.045;
+  letter-spacing: 0.1em;
+  margin-bottom: 34px;
+  font-weight: 400; }
+
+h2 {
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 100;
+  font-size: 44px;
+  line-height: 1.045; }
+
+h2 + h2 {
+  margin-top: 0px; }
+
+@media screen and (max-width: 767px) {
+  html, body {
+    font-size: 14px; }
+
+  h1 {
+    font-size: 25px; }
+
+  h2 {
+    font-size: 20px; } }
+.description {
+  font-size: 12px;
+  list-style: none; }
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  z-index: 0; }
+
+/* Scrollable sections */
+.container,
+.sections,
+.section,
+.overlays {
+  width: 100%;
+  height: 100%; }
+
+.sections {
+  position: relative; }
+
+.container-fixed {
+  transition: none; }
+
+.section {
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
+  top: 0; }
+
+.section-cell {
+  position: relative;
+  z-index: 10;
+  height: 100%; }
+  .section-cell:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle; }
+
+.section-cell-inner {
+  display: inline-block;
+  vertical-align: middle;
+  width: 98%;
+  position: relative; }
+
+.content-inner {
+  height: 401px; }
+
+@media screen and (max-width: 767px) {
+  .section-inner-content,
+  .section-inner-content-row {
+    margin-right: -10px;
+    margin-left: -10px; } }
+@media only screen and (min-device-width: 1024px) and (max-device-height: 800px), only screen and (min-device-width: 1024px) and (min-aspect-ratio: 1440 / 800) {
+  .content {
+    padding-left: 100px; } }
+.phone-gloving {
+  position: absolute;
+  height: 100%;
+  left: -50%; }
+
+.phone-gloving-image {
+  z-index: 8;
+  width: 100%;
+  height: 100%; }
+
+.phone-image {
+  position: relative;
+  z-index: 9;
+  height: 800px;
+  max-height: 100%;
+  padding-top: 60px;
+  padding-bottom: 100px;
+  text-align: right; }
+
+@media only screen and (min-device-width: 1024px) and (max-device-height: 800px), only screen and (min-device-width: 1024px) and (min-aspect-ratio: 1440 / 800) {
+  .phone-image {
+    padding-top: 40px;
+    padding-bottom: 80px; } }
+.overlays {
+  position: fixed;
+  z-index: 100;
+  pointer-events: none; }
+
+.logo {
+  z-index: 101;
+  position: absolute;
+  margin: 50px 0 0 0;
+  padding: 0 0 0 40px;
+  top: 0;
+  left: 0;
+  pointer-events: visible; }
+
+.logo-image {
+  width: 200px;
+  max-width: 100%; }
+
+.appstore {
+  z-index: 101;
+  position: absolute;
+  margin: 0 0 40px 0;
+  padding: 0 0 0 40px;
+  bottom: 0;
+  left: 0;
+  pointer-events: visible; }
+
+.appstore-image {
+  width: 200px;
+  max-width: 100%; }
+
+.overlay-bottom {
+  z-index: 101;
+  position: absolute;
+  margin: 0 0 40px 0;
+  padding: 0 40px 0 40px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: table;
+  width: 100%; }
+
+.overlay-bottom-left {
+  display: table-cell;
+  width: 50%;
+  pointer-events: visible; }
+  .overlay-bottom-left p:last-child {
+    margin-bottom: 0; }
+
+.overlay-bottom-right {
+  display: table-cell;
+  width: 50%;
+  pointer-events: visible;
+  text-align: right;
+  vertical-align: bottom; }
+
+.agreement {
+  z-index: 101;
+  position: absolute;
+  margin: 0 0 40px 0;
+  padding: 0 40px 0 0;
+  right: 0;
+  bottom: 0; }
+
+.agreement-link,
+.support-link {
+  vertical-align: bottom;
+  font-size: 12px;
+  pointer-events: visible;
+  margin-right: 10px; }
+
+.menu {
+  z-index: 101;
+  position: absolute;
+  margin: 0 0 0 0;
+  padding: 0 45px 0 0;
+  right: 0;
+  pointer-events: visible;
+  top: 0;
+  bottom: 0; }
+
+@media screen and (max-width: 767px) {
+  .overlay-bottom {
+    display: block;
+    z-index: 101;
+    position: absolute;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    margin-top: 75px; }
+
+  .overlay-bottom-left,
+  .overlay-bottom-right {
+    display: block;
+    text-align: center;
+    width: 100%; } }
+.section {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-attachment: fixed; }
+
+.slide1 {
+  background-image: url("/img/backgrounds/main.jpg"); }
